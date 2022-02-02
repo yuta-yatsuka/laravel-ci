@@ -31,7 +31,6 @@ jobs:
           paths:
             - node_modules
       - run: npm run dev
-<<<<<<< HEAD
       - run:
           name: get ready for postgres
           command: |
@@ -39,15 +38,6 @@ jobs:
             sudo apt-get install libpq-dev
             sudo docker-php-ext-install pdo_pgsql
             dockerize -wait tcp://localhost:5432 -timeout 1m
-=======
-      - run: 
-         name: get ready for postgres
-         command: |
-          sudo apt-get update
-          sudo apt-get instaall libpq-dev
-          sudo docker-php-ext-install pdo_pgsql
-          dockerize -wait tcp://localhost:5432 -timeout 1m
->>>>>>> parent of ba62c26... Updated config.yml
       - run:
           name: php test
           command: ./vendor/bin/phpunit
@@ -61,7 +51,7 @@ jobs:
       - run:
           name: deploy
           command: |
-            ssh -o StrictHostKeyChecking=no -t webapp@{HOST_NAME} "cd laravel-ci && \
+            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd laravel-ci && \
             git pull origin master && \
             composer install -n --no-dev --prefer-dist && \
             npm ci && \
