@@ -86,7 +86,7 @@ jobs:
 
   deploy_tmp:
     docker:
-      - image: circle/php:7.3-node-browsers
+      - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
       - add_ssh_keys
