@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - composer self-update --1
-      - composer install -n -no-dev --prefer-dist
+      - composer install -n --no-dev --prefer-dist
       - npm ci
 
   build:
